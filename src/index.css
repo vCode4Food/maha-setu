@@ -1,0 +1,7 @@
+@import './styles/global.css';
+@import './styles/components.css';
+@import './styles/navigation.css';
+@import './styles/pages.css';
+@import './styles/home.css';
+@import './styles/chatbot.css';
+@import './styles/map.css';

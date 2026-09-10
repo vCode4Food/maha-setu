@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8D8C5"/>
+      <stop offset="100%" style="stop-color:#8FCFD0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <text x="400" y="300" text-anchor="middle" fill="#0B2745" font-family="sans-serif" font-size="24" opacity="0.5">MahaSetu</text>
+</svg>

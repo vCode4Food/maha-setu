@@ -1,0 +1,204 @@
+/* Map & nearby services */
+
+.nearby-map-section {
+  scroll-margin-top: var(--header-height);
+}
+
+.nearby-map-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.map-city-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.map-city-chip {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-full);
+  padding: 6px 12px;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+}
+
+.map-city-chip.active,
+.map-city-chip:hover {
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+  background: var(--color-info-bg);
+}
+
+.nearby-map-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.nearby-map-container {
+  position: relative;
+  min-height: 280px;
+}
+
+.nearby-map-canvas {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  z-index: 1;
+}
+
+.nearby-map-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-border-light);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  z-index: 0;
+}
+
+.nearby-map-list {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  border-left: 1px solid var(--color-border);
+  overflow-y: auto;
+  max-height: 360px;
+}
+
+.nearby-list-title {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-2);
+}
+
+.nearby-list-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: all var(--transition-fast);
+}
+
+.nearby-list-item:hover,
+.nearby-list-item.selected {
+  background: var(--color-info-bg);
+  border-color: rgba(15, 111, 115, 0.15);
+}
+
+.nearby-list-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.nearby-list-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nearby-list-name {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+.nearby-list-distance {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.nearby-detail-card {
+  margin-top: var(--space-3);
+  padding: var(--space-4) !important;
+}
+
+.nearby-detail-type {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.nearby-detail-name {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: var(--space-1) 0 var(--space-3);
+}
+
+.nearby-detail-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-3);
+}
+
+.nearby-open {
+  color: var(--color-success);
+  font-weight: 500;
+}
+
+.nearby-closed {
+  color: var(--color-warning);
+  font-weight: 500;
+}
+
+.nearby-detail-address {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.nearby-detail-distance {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+
+/* Leaflet dark mode tweaks */
+[data-theme='dark'] .leaflet-tile-pane {
+  filter: brightness(0.75) contrast(1.1);
+}
+
+@media (max-width: 768px) {
+  .nearby-map-layout {
+    grid-template-columns: 1fr;
+  }
+  .nearby-map-list {
+    border-left: none;
+    border-top: 1px solid var(--color-border);
+    max-height: none;
+  }
+  .nearby-map-container { min-height: 220px; }
+  .nearby-map-canvas { min-height: 220px; }
+}
