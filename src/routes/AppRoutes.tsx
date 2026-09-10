@@ -1,6 +1,18 @@
 import { Routes, Route } from 'react-router-dom';
+
 import { Layout } from '../components/common/Layout';
+import { PublicLayout } from '../components/landing/PublicLayout';
+
 import { HomePage } from '../pages/Home/HomePage';
+import { LandingPage } from '../pages/Landing/LandingPage';
+import { LoginPage } from '../pages/Auth/LoginPage';
+import {
+  ForgotPasswordPage,
+  ResetPasswordPage,
+  VerifyOtpPage,
+} from '../pages/Auth/RecoveryPages';
+import { PersonaSelectionPage } from '../pages/Auth/PersonaSelectionPage';
+
 import { SearchPage } from '../pages/Search/SearchPage';
 import { ServicesPage } from '../pages/Services/ServicesPage';
 import { ServiceDetailsPage } from '../pages/ServiceDetails/ServiceDetailsPage';
@@ -13,26 +25,20 @@ import { ProfilePage } from '../pages/Profile/ProfilePage';
 import { HelpPage, AboutPage } from '../pages/Help/HelpPage';
 import { UpdatesPage } from '../pages/Updates/UpdatesPage';
 import { NotFoundPage } from '../pages/NotFound/NotFoundPage';
-<<<<<<< HEAD
-=======
-import { LandingPage } from '../pages/Landing/LandingPage';
-import { LoginPage } from '../pages/Auth/LoginPage';
-import { PublicLayout } from '../components/landing/PublicLayout';
+
 import { ProtectedRoute } from './ProtectedRoute';
 import { RoleGuard } from './RoleGuard';
 import { ROLES } from '../types';
-import { DepartmentDashboard, AdminDashboard } from '../pages/Rbac/RoleDashboards';
-import { ForgotPasswordPage, ResetPasswordPage, VerifyOtpPage } from '../pages/Auth/RecoveryPages';
-import { PersonaSelectionPage } from '../pages/Auth/PersonaSelectionPage';
->>>>>>> 824b4f9 (Landing + RBAC)
+
+import {
+  DepartmentDashboard,
+  AdminDashboard,
+} from '../pages/Rbac/RoleDashboards';
 
 export function AppRoutes() {
   return (
     <Routes>
-<<<<<<< HEAD
-      <Route element={<Layout />}>
-        <Route path="/" element={<HomePage />} />
-=======
+      {/* ==================== PUBLIC ROUTES ==================== */}
       <Route element={<PublicLayout />}>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
@@ -43,38 +49,76 @@ export function AppRoutes() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/help" element={<HelpPage />} />
       </Route>
+
+      {/* ==================== PROTECTED ROUTES ==================== */}
       <Route element={<ProtectedRoute />}>
-      <Route element={<Layout />}>
-        <Route element={<RoleGuard allowedRoles={[ROLES.USER]} />}>
-        <Route path="/dashboard" element={<HomePage />} />
->>>>>>> 824b4f9 (Landing + RBAC)
-        <Route path="/search" element={<SearchPage />} />
-        <Route path="/education" element={<ServicesPage />} />
-        <Route path="/employability" element={<ServicesPage />} />
-        <Route path="/browse/:departmentId" element={<ServicesPage />} />
-        <Route path="/services/:serviceId" element={<ServiceDetailsPage />} />
-        <Route path="/services/:serviceId/eligibility" element={<EligibilityPage />} />
-        <Route path="/services/:serviceId/apply" element={<ApplicationPage />} />
-        <Route path="/applications" element={<ApplicationsPage />} />
-        <Route path="/applications/:applicationId" element={<ApplicationDetailPage />} />
-        <Route path="/documents" element={<DocumentsPage />} />
-        <Route path="/updates" element={<UpdatesPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-<<<<<<< HEAD
-        <Route path="/help" element={<HelpPage />} />
-        <Route path="/about" element={<AboutPage />} />
-=======
-        </Route>
-        <Route element={<RoleGuard allowedRoles={[ROLES.DEPARTMENT_OFFICER]} />}>
-          <Route path="/department" element={<DepartmentDashboard />} />
-        </Route>
-        <Route element={<RoleGuard allowedRoles={[ROLES.ADMIN]} />}>
-          <Route path="/admin" element={<AdminDashboard />} />
+        <Route element={<Layout />}>
+          {/* ---------- Citizen / User ---------- */}
+          <Route element={<RoleGuard allowedRoles={[ROLES.USER]} />}>
+            <Route path="/dashboard" element={<HomePage />} />
+
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/education" element={<ServicesPage />} />
+            <Route path="/employability" element={<ServicesPage />} />
+
+            <Route
+              path="/browse/:departmentId"
+              element={<ServicesPage />}
+            />
+
+            <Route
+              path="/services/:serviceId"
+              element={<ServiceDetailsPage />}
+            />
+
+            <Route
+              path="/services/:serviceId/eligibility"
+              element={<EligibilityPage />}
+            />
+
+            <Route
+              path="/services/:serviceId/apply"
+              element={<ApplicationPage />}
+            />
+
+            <Route path="/applications" element={<ApplicationsPage />} />
+
+            <Route
+              path="/applications/:applicationId"
+              element={<ApplicationDetailPage />}
+            />
+
+            <Route path="/documents" element={<DocumentsPage />} />
+            <Route path="/updates" element={<UpdatesPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+
+            <Route path="/help" element={<HelpPage />} />
+            <Route path="/about" element={<AboutPage />} />
+          </Route>
+
+          {/* ---------- Department Officer ---------- */}
+          <Route
+            element={
+              <RoleGuard allowedRoles={[ROLES.DEPARTMENT_OFFICER]} />
+            }
+          >
+            <Route
+              path="/department"
+              element={<DepartmentDashboard />}
+            />
+          </Route>
+
+          {/* ---------- Administrator ---------- */}
+          <Route
+            element={<RoleGuard allowedRoles={[ROLES.ADMIN]} />}
+          >
+            <Route path="/admin" element={<AdminDashboard />} />
+          </Route>
         </Route>
       </Route>
-      </Route>
+
+      {/* ==================== 404 ==================== */}
       <Route element={<PublicLayout />}>
->>>>>>> 824b4f9 (Landing + RBAC)
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>

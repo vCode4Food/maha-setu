@@ -2,8 +2,7 @@ export type DepartmentId = 'education' | 'employability';
 
 export type Language = 'en' | 'hi' | 'mr';
 
-<<<<<<< HEAD
-=======
+
 export const ROLES = {
   USER: 'USER',
   DEPARTMENT_OFFICER: 'DEPARTMENT_OFFICER',
@@ -24,7 +23,7 @@ export interface AuthUser {
   department?: string;
 }
 
->>>>>>> 824b4f9 (Landing + RBAC)
+
 export type ApplicationStatus =
   | 'draft'
   | 'submitted'

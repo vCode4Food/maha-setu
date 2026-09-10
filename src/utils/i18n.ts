@@ -132,8 +132,7 @@ Object.assign(mr, {
   'map.location.loc-employment-pune.hours': 'सकाळी 10:00 – संध्याकाळी 5:00', 'map.location.loc-skill-pune.hours': 'सकाळी 9:00 – संध्याकाळी 6:00', 'map.location.loc-education-pune.hours': 'सकाळी 10:00 – संध्याकाळी 4:30', 'map.location.loc-cfc-pune.hours': 'सकाळी 10:00 – संध्याकाळी 5:30', 'map.location.loc-govt-pune.hours': 'आज बंद · बुधवारी सकाळी 10:00 वाजता खुलेल', 'map.location.loc-cfc-mumbai.hours': 'सकाळी 10:00 – संध्याकाळी 5:00', 'map.location.loc-emp-nagpur.hours': 'सकाळी 10:00 – संध्याकाळी 5:00', 'map.location.loc-edu-nashik.hours': 'सकाळी 10:00 – संध्याकाळी 4:30', 'map.location.loc-skill-thane.hours': 'सकाळी 9:30 – संध्याकाळी 6:00', 'map.location.loc-govt-csm.hours': 'सकाळी 10:00 – संध्याकाळी 5:00',
 });
 
-<<<<<<< HEAD
-=======
+
 Object.assign(en, {
   'auth.forgot': 'Forgot password?', 'auth.backToLogin': 'Back to login', 'auth.mobile.label': 'Maha ID / mobile number', 'auth.mobile.placeholder': '10-digit mobile number', 'auth.mobile.error': 'Enter a valid 10-digit demo mobile number.',
   'persona.eyebrow': 'Demo mode · Simulated data', 'persona.title': 'Choose Demo Persona', 'persona.body': 'Select a role to explore how MahaSetu adapts access, navigation and information for each user.', 'persona.continue': 'Continue as this persona',
@@ -162,7 +161,7 @@ Object.assign(mr, {
   'rbac.admin.eyebrow': 'सिस्टम प्रशासन · डेमो मोड', 'rbac.admin.title': 'स्वागत आहे, {{name}}', 'rbac.admin.body': 'राज्यभर महासेतूचे निरीक्षण करण्यासाठी सिम्युलेटेड प्लॅटफॉर्म दृश्य.', 'rbac.admin.departments': 'जोडलेले विभाग', 'rbac.admin.users': 'डेमो नागरिक प्रोफाइल', 'rbac.admin.services': 'प्रकाशित सेवा', 'rbac.admin.uptime': 'प्रोटोटाइप उपलब्धता', 'rbac.admin.usersTitle': 'वापरकर्ता व्यवस्थापन', 'rbac.admin.usersBody': 'प्रातिनिधिक नागरिक प्रवेश आणि खाते पद्धतींचे पुनरावलोकन करा.', 'rbac.admin.manageUsers': 'वापरकर्ते व्यवस्थापित करा', 'rbac.admin.deptTitle': 'विभाग व्यवस्थापन', 'rbac.admin.deptBody': 'सहभागी विभाग आणि त्यांची सेवा तयारी पहा.', 'rbac.admin.manageDepartments': 'विभाग व्यवस्थापित करा', 'rbac.admin.activityTitle': 'सिस्टम कृती', 'rbac.admin.activityBody': 'प्रातिनिधिक सिस्टम इव्हेंट आणि प्लॅटफॉर्म आरोग्य पहा.', 'rbac.admin.viewActivity': 'कृती पहा',
 });
 
->>>>>>> 824b4f9 (Landing + RBAC)
+
 export function t(key: TranslationKey, language: Language, values?: TranslationValues): string {
   const template = translations[language][key] ?? en[key] ?? key;
   return values ? template.replace(/{{(\w+)}}/g, (_, name: string) => String(values[name] ?? '')) : template;
@@ -275,8 +274,7 @@ export function localizeApplication(application: Application, language: Language
     }),
   };
 }
-<<<<<<< HEAD
-=======
+
 
 // Public experience and demo-authentication copy. Kept in the existing catalogue
 // so language switching remains a single application-wide concern.
@@ -318,4 +316,4 @@ Object.assign(mr, {
   'landing.cta.eyebrow': 'तुम्ही तयार असाल तेव्हा', 'landing.cta.title': 'तुमचा महासेतू प्रवास सुरू करा', 'landing.cta.body': 'सुरक्षित, सिम्युलेटेड साइन-इनद्वारे नागरिक डॅशबोर्ड एक्सप्लोर करा.', 'landing.footer.tagline': 'एक शासन. एक अनुभव.', 'landing.footer.account': 'प्रवेश',
   'auth.back': 'मुख्यपृष्ठावर परत', 'auth.eyebrow': 'सुरक्षित डेमो प्रवेश', 'auth.title': 'महासेतूमध्ये आपले स्वागत आहे', 'auth.body': 'नागरिक अनुभव पाहण्यासाठी सिम्युलेटेड साइन-इन पद्धत निवडा.', 'auth.mahaId': 'महा आयडीसह पुढे जा', 'auth.mahaId.body': 'महासेतू डेमो प्रोफाइल वापरा', 'auth.aadhaar': 'आधारसह पुढे जा', 'auth.aadhaar.body': 'सुरक्षित, संवेदनशील नसलेला डेमो प्रवाह', 'auth.demo.title': 'डेमो प्रमाणीकरण', 'auth.mahaId.notice': 'हे सिम्युलेटेड महा आयडी साइन-इनची पुष्टी करते. कोणताही पासवर्ड किंवा वैयक्तिक क्रेडेन्शियल विचारला जात नाही.', 'auth.aadhaar.notice': 'कोणताही आधार क्रमांक, OTP, बायोमेट्रिक किंवा वैयक्तिक ओळख माहिती विचारली किंवा गोळा केली जात नाही.', 'auth.continueDemo': 'डेमो डॅशबोर्डवर जा', 'auth.safety': 'महासेतू हा फ्रंटएंड प्रोटोटाइप आहे. प्रमाणीकरण सिम्युलेटेड आहे आणि UIDAI किंवा कोणत्याही सरकारी प्रणालीशी जोडलेले नाही.',
 });
->>>>>>> 824b4f9 (Landing + RBAC)
+
