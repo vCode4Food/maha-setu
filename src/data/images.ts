@@ -138,6 +138,16 @@ export const carouselSlides = [
   },
 ];
 
+<<<<<<< HEAD
+=======
+export const maharashtraCarouselSlides = [
+  { id: 'mh-mumbai', image: images.atalSetu.primary, fallback: images.atalSetu.fallback, altKey: images.atalSetu.altKey, labelKey: 'landing.culture.mumbai', captionKey: 'landing.culture.mumbai.body' },
+  { id: 'mh-konkan', image: images.impact.primary, fallback: images.impact.fallback, altKey: images.impact.altKey, labelKey: 'landing.culture.konkan', captionKey: 'landing.culture.konkan.body' },
+  { id: 'mh-heritage', image: images.civic.primary, fallback: images.civic.fallback, altKey: images.civic.altKey, labelKey: 'landing.culture.heritage', captionKey: 'landing.culture.heritage.body' },
+  { id: 'mh-sahyadri', image: images.infrastructure.primary, fallback: images.infrastructure.fallback, altKey: images.infrastructure.altKey, labelKey: 'landing.culture.sahyadri', captionKey: 'landing.culture.sahyadri.body' },
+] as const;
+
+>>>>>>> 824b4f9 (Landing + RBAC)
 export const CAROUSEL_INTERVAL_MS = 92_000;
 
 export type ImageKey = keyof typeof images;

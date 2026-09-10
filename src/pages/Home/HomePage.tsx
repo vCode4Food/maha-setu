@@ -43,7 +43,11 @@ function SafeImage({ src, fallback, alt, className }: { src: string; fallback: s
 }
 
 const quickActions = [
+<<<<<<< HEAD
   { label: 'quick.findService', to: '/search', icon: Search }, { label: 'quick.trackApplication', to: '/applications', icon: ClipboardCheck }, { label: 'quick.documents', to: '/documents', icon: FileText }, { label: 'quick.nearby', to: '/#nearby-map', icon: MapPin }, { label: 'quick.schemes', to: '/updates', icon: Landmark }, { label: 'quick.help', to: '/help', icon: LifeBuoy },
+=======
+  { label: 'quick.findService', to: '/search', icon: Search }, { label: 'quick.trackApplication', to: '/applications', icon: ClipboardCheck }, { label: 'quick.documents', to: '/documents', icon: FileText }, { label: 'quick.nearby', to: '/dashboard#nearby-map', icon: MapPin }, { label: 'quick.schemes', to: '/updates', icon: Landmark }, { label: 'quick.help', to: '/help', icon: LifeBuoy },
+>>>>>>> 824b4f9 (Landing + RBAC)
 ];
 
 const recommendedDepartments = [

@@ -6,6 +6,10 @@ import { Chatbot } from '../chatbot/Chatbot';
 import { LoadingScreen } from './LoadingScreen';
 import { useApp } from '../../context/AppContext';
 
+<<<<<<< HEAD
+=======
+/** Shell for signed-in citizen routes only. */
+>>>>>>> 824b4f9 (Landing + RBAC)
 export function Layout() {
   const location = useLocation();
   const { toast } = useApp();

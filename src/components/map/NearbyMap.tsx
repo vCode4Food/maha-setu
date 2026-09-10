@@ -17,9 +17,17 @@ const typeColors: Record<ServiceLocation['type'], string> = {
 
 interface NearbyMapProps {
   compact?: boolean;
+<<<<<<< HEAD
 }
 
 export function NearbyMap({ compact = false }: NearbyMapProps) {
+=======
+  titleKey?: string;
+  subtitleKey?: string;
+}
+
+export function NearbyMap({ compact = false, titleKey = 'map.title', subtitleKey = 'map.subtitle' }: NearbyMapProps) {
+>>>>>>> 824b4f9 (Landing + RBAC)
   const { language } = useApp();
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstance = useRef<L.Map | null>(null);
@@ -106,8 +114,13 @@ export function NearbyMap({ compact = false }: NearbyMapProps) {
     <section id="nearby-map" className={`nearby-map-section ${compact ? 'nearby-map-compact' : ''}`}>
       <div className="nearby-map-header">
         <div>
+<<<<<<< HEAD
           <h2 className="section-title">{t('map.title', language)}</h2>
           <p className="section-subtitle">{t('map.subtitle', language)}</p>
+=======
+          <h2 className="section-title">{t(titleKey, language)}</h2>
+          <p className="section-subtitle">{t(subtitleKey, language)}</p>
+>>>>>>> 824b4f9 (Landing + RBAC)
         </div>
         <Button variant="secondary" size="sm" onClick={useMyLocation}>
           <LocateFixed size={14} /> {t('map.useLocation', language)}

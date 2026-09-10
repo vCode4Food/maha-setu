@@ -1,8 +1,15 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD
 import { GraduationCap, Briefcase, User, LifeBuoy, Info } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { t } from '../../utils/i18n';
+=======
+import { GraduationCap, Briefcase, User, LifeBuoy, Info, BarChart3 } from 'lucide-react';
+import { useApp } from '../../context/AppContext';
+import { t } from '../../utils/i18n';
+import { dashboardPathForRole } from '../../data/personas';
+>>>>>>> 824b4f9 (Landing + RBAC)
 
 interface BurgerMenuProps {
   open: boolean;
@@ -10,7 +17,13 @@ interface BurgerMenuProps {
 }
 
 export function BurgerMenu({ open, onToggle }: BurgerMenuProps) {
+<<<<<<< HEAD
   const { language } = useApp();
+=======
+  const { language, authUser } = useApp();
+  const isCitizen = authUser?.role === 'USER';
+  const dashboardPath = authUser ? dashboardPathForRole(authUser.role) : '/dashboard';
+>>>>>>> 824b4f9 (Landing + RBAC)
 
   useEffect(() => {
     if (!open) return;
@@ -52,6 +65,7 @@ export function BurgerMenu({ open, onToggle }: BurgerMenuProps) {
       <nav className={`burger-panel ${open ? 'is-open' : ''}`} aria-label={t('nav.services', language)} aria-hidden={!open}>
         <div className="burger-panel-inner">
           <div className="burger-panel-section">
+<<<<<<< HEAD
             <span className="burger-panel-label">{t('nav.services', language)}</span>
             <Link to="/education" className="burger-panel-link burger-stagger-1" onClick={onToggle}>
               <span className="burger-link-icon burger-icon-education">
@@ -64,15 +78,35 @@ export function BurgerMenu({ open, onToggle }: BurgerMenuProps) {
                 <Briefcase size={20} strokeWidth={1.6} />
               </span>
               <span>{t('nav.employability', language)}</span>
+=======
+            <span className="burger-panel-label">{isCitizen ? t('nav.services', language) : t('rbac.nav.overview', language)}</span>
+            <Link to={isCitizen ? '/education' : dashboardPath} className="burger-panel-link burger-stagger-1" onClick={onToggle}>
+              <span className="burger-link-icon burger-icon-education">
+                <GraduationCap size={20} strokeWidth={1.6} />
+              </span>
+              <span>{isCitizen ? t('nav.education', language) : t('rbac.nav.requests', language)}</span>
+            </Link>
+            <Link to={isCitizen ? '/employability' : dashboardPath} className="burger-panel-link burger-stagger-2" onClick={onToggle}>
+              <span className="burger-link-icon burger-icon-employability">
+              {isCitizen ? <Briefcase size={20} strokeWidth={1.6} /> : <BarChart3 size={20} strokeWidth={1.6} />}
+              </span>
+              <span>{isCitizen ? t('nav.employability', language) : t('rbac.nav.reports', language)}</span>
+>>>>>>> 824b4f9 (Landing + RBAC)
             </Link>
           </div>
 
           <div className="burger-panel-divider" />
 
           <div className="burger-panel-section">
+<<<<<<< HEAD
             <Link to="/profile" className="burger-panel-link burger-stagger-3" onClick={onToggle}>
               <span className="burger-link-icon"><User size={18} strokeWidth={1.6} /></span>
               <span>{t('nav.profile', language)}</span>
+=======
+            <Link to={isCitizen ? '/profile' : dashboardPath} className="burger-panel-link burger-stagger-3" onClick={onToggle}>
+              <span className="burger-link-icon"><User size={18} strokeWidth={1.6} /></span>
+              <span>{isCitizen ? t('nav.profile', language) : t('rbac.nav.overview', language)}</span>
+>>>>>>> 824b4f9 (Landing + RBAC)
             </Link>
             <Link to="/help" className="burger-panel-link burger-stagger-4" onClick={onToggle}>
               <span className="burger-link-icon"><LifeBuoy size={18} strokeWidth={1.6} /></span>

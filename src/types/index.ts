@@ -2,6 +2,29 @@ export type DepartmentId = 'education' | 'employability';
 
 export type Language = 'en' | 'hi' | 'mr';
 
+<<<<<<< HEAD
+=======
+export const ROLES = {
+  USER: 'USER',
+  DEPARTMENT_OFFICER: 'DEPARTMENT_OFFICER',
+  ADMIN: 'ADMIN',
+} as const;
+
+export type UserRole = (typeof ROLES)[keyof typeof ROLES];
+export type AuthMethod = 'MAHA_ID' | 'AADHAAR';
+
+export interface AuthUser {
+  id: string;
+  name: string;
+  mobile: string;
+  district: string;
+  preferredLanguage: Language;
+  authMethod: AuthMethod;
+  role: UserRole;
+  department?: string;
+}
+
+>>>>>>> 824b4f9 (Landing + RBAC)
 export type ApplicationStatus =
   | 'draft'
   | 'submitted'

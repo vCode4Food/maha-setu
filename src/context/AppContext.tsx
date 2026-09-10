@@ -13,7 +13,15 @@ import type {
   Document,
   Language,
   Notification,
+<<<<<<< HEAD
 } from '../types';
+=======
+  AuthMethod,
+  AuthUser,
+} from '../types';
+import { getPersona } from '../data/personas';
+import { hasPermission as roleHasPermission, type Permission } from '../auth/rbac';
+>>>>>>> 824b4f9 (Landing + RBAC)
 import {
   addApplication,
   addDocument,
@@ -36,6 +44,11 @@ interface AppContextValue {
   notifications: Notification[];
   language: Language;
   toast: string | null;
+<<<<<<< HEAD
+=======
+  isAuthenticated: boolean;
+  authUser: AuthUser | null;
+>>>>>>> 824b4f9 (Landing + RBAC)
   updateProfileData: (updates: Partial<CitizenProfile>) => void;
   setLanguage: (lang: Language) => void;
   refreshApplications: () => void;
@@ -45,6 +58,12 @@ interface AppContextValue {
   readNotification: (id: string) => void;
   readAllNotifications: () => void;
   showToast: (message: string) => void;
+<<<<<<< HEAD
+=======
+  login: (personaId: string, method: AuthMethod) => void;
+  logout: () => void;
+  hasPermission: (permission: Permission) => boolean;
+>>>>>>> 824b4f9 (Landing + RBAC)
   unreadCount: number;
 }
 
@@ -57,6 +76,18 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [notifications, setNotifications] = useState<Notification[]>(() => getNotifications());
   const [language, setLanguageState] = useState<Language>(() => getProfile().language);
   const [toast, setToast] = useState<string | null>(null);
+<<<<<<< HEAD
+=======
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    () => Boolean(localStorage.getItem('mahasetu_mock_session'))
+  );
+  const [authUser, setAuthUser] = useState<AuthUser | null>(() => {
+    try {
+      const session = localStorage.getItem('mahasetu_mock_session');
+      return session ? (JSON.parse(session) as AuthUser) : null;
+    } catch { return null; }
+  });
+>>>>>>> 824b4f9 (Landing + RBAC)
 
   // Make the selected locale a document-level concern. This reaches portals,
   // overlays and third-party controls without adding font classes per component.
@@ -128,6 +159,26 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setToast(message);
   }, []);
 
+<<<<<<< HEAD
+=======
+  const login = useCallback((personaId: string, method: AuthMethod) => {
+    const persona = getPersona(personaId);
+    if (!persona) return;
+    const user: AuthUser = { ...persona, authMethod: method };
+    localStorage.setItem('mahasetu_mock_session', JSON.stringify(user));
+    localStorage.removeItem('mahasetu_mock_authenticated');
+    setAuthUser(user);
+    setIsAuthenticated(true);
+  }, []);
+
+  const logout = useCallback(() => {
+    localStorage.removeItem('mahasetu_mock_authenticated');
+    localStorage.removeItem('mahasetu_mock_session');
+    setAuthUser(null);
+    setIsAuthenticated(false);
+  }, []);
+
+>>>>>>> 824b4f9 (Landing + RBAC)
   useEffect(() => {
     if (toast) {
       const timer = setTimeout(() => setToast(null), 3000);
@@ -139,6 +190,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
     () => notifications.filter((n) => !n.read).length,
     [notifications]
   );
+<<<<<<< HEAD
+=======
+  const hasPermission = useCallback((permission: Permission) => (
+    authUser ? roleHasPermission(authUser.role, permission) : false
+  ), [authUser]);
+>>>>>>> 824b4f9 (Landing + RBAC)
 
   const value = useMemo(
     () => ({
@@ -148,6 +205,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
       notifications,
       language,
       toast,
+<<<<<<< HEAD
+=======
+      isAuthenticated,
+      authUser,
+>>>>>>> 824b4f9 (Landing + RBAC)
       updateProfileData,
       setLanguage,
       refreshApplications,
@@ -157,6 +219,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
       readNotification,
       readAllNotifications,
       showToast,
+<<<<<<< HEAD
+=======
+      login,
+      logout,
+      hasPermission,
+>>>>>>> 824b4f9 (Landing + RBAC)
       unreadCount,
     }),
     [
@@ -166,6 +234,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
       notifications,
       language,
       toast,
+<<<<<<< HEAD
+=======
+      isAuthenticated,
+      authUser,
+>>>>>>> 824b4f9 (Landing + RBAC)
       updateProfileData,
       setLanguage,
       refreshApplications,
@@ -175,6 +248,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
       readNotification,
       readAllNotifications,
       showToast,
+<<<<<<< HEAD
+=======
+      login,
+      logout,
+      hasPermission,
+>>>>>>> 824b4f9 (Landing + RBAC)
       unreadCount,
     ]
   );
