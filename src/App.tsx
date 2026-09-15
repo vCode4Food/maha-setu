@@ -1,4 +1,5 @@
 import { BrowserRouter } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { AppProvider } from './context/AppContext';
 import { AppRoutes } from './routes/AppRoutes';
 import { ThemeProvider } from './components/theme/ThemeProvider';
@@ -11,6 +12,7 @@ function App() {
           <AppRoutes />
         </AppProvider>
       </ThemeProvider>
+      <Analytics />
     </BrowserRouter>
   );
 }
