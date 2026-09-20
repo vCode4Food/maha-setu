@@ -1,10 +1,46 @@
-@import './styles/global.css';
-@import './styles/components.css';
-@import './styles/navigation.css';
-@import './styles/pages.css';
-@import './styles/home.css';
-@import './styles/chatbot.css';
-@import './styles/map.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@import './styles/landing.css';
+@layer base {
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body { @apply bg-canvas text-slate-800 font-sans; }
+  :focus-visible { @apply outline-none ring-2 ring-primary-500 ring-offset-2 rounded-md; }
+  ::selection { @apply bg-saffron-200 text-saffron-900; }
+}
 
+@layer components {
+  .flow-line { stroke-dasharray: 6 7; animation: dashmove 1.3s linear infinite; }
+  .skeleton { @apply relative overflow-hidden bg-slate-200/70 rounded-lg; }
+  .skeleton::after {
+    content: ''; @apply absolute inset-0 -translate-x-full;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.65), transparent);
+    animation: shimmer 1.5s infinite;
+  }
+}
+
+@keyframes shimmer { 100% { transform: translateX(100%); } }
+
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { @apply bg-slate-300 rounded-full; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+  .text-balance { text-wrap: balance; }
+  .tricolor-bar { background: linear-gradient(90deg, #f97316 0 33.3%, #e2e8f0 33.3% 66.6%, #16a34a 66.6% 100%); }
+}
+
+/* Recharts polish */
+.recharts-cartesian-axis-tick text { font-size: 11px; fill: #64748b; }
+.recharts-tooltip-wrapper { outline: none; }
+
+/* MahaMap activity pulses — compositor-friendly CSS instead of SMIL, so the
+   browser can run them without per-frame main-thread layout work. */
+.map-pulse { opacity: 0.85; animation: map-pulse 2.4s ease-in-out infinite; }
+@keyframes map-pulse { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.9; } }
+
+/* Accessibility: honor prefers-reduced-motion across all continuous animations. */
+@media (prefers-reduced-motion: reduce) {
+  .map-pulse { animation: none; opacity: 0.85; }
+  .flow-line { animation: none; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>MahaSetu — verification gallery</title>
+<style>
+  body { margin: 0; background: #0f172a; color: #e2e8f0; font: 14px/1.5 -apple-system, "Segoe UI", sans-serif; padding: 32px; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  h2 { font-size: 16px; margin: 36px 0 8px; color: #93c5fd; }
+  p.sub { color: #94a3b8; margin: 0 0 28px; }
+  figure { margin: 0 0 36px; }
+  figcaption { margin-bottom: 10px; }
+  .tag { display: inline-block; background: #14532d; color: #86efac; border-radius: 999px; padding: 2px 10px; font-size: 12px; font-weight: 600; margin-right: 8px; }
+  .metric { color: #94a3b8; font-size: 12.5px; }
+  img { width: 100%; height: auto; display: block; border-radius: 12px; border: 1px solid #334155; }
+</style>
+</head>
+<body>
+  <h1>MahaSetu — verification gallery</h1>
+  <p class="sub">Rendered in headless Chrome, logged in via the real Maha&nbsp;ID → password → dynamic-OTP flow.</p>
+
+  <h2>Branding — official logo &amp; auth navbar (this pass)</h2>
+
+  <figure>
+    <figcaption><span class="tag">PASS</span><strong>Login — auth navbar with official logo, brand name &amp; tagline</strong>
+      <div class="metric">Navbar: logo mark + “MahaSetu” + “Connecting Citizens | Empowering Maharashtra” + Back to Home · image loads (256×178 asset)</div>
+    </figcaption>
+    <img src="/__verify/brand-login.png" alt="Login page at 1440px showing official MahaSetu logo with brand name and tagline in the navbar" />
+  </figure>
+
+  <figure>
+    <figcaption><span class="tag">PASS</span><strong>Register — same auth navbar branding</strong>
+      <div class="metric">Identical brand lockup on the 4-step registration flow</div>
+    </figcaption>
+    <img src="/__verify/brand-register.png" alt="Register page at 1440px with the MahaSetu brand navbar" />
+  </figure>
+
+  <figure>
+    <figcaption><span class="tag">PASS</span><strong>Citizen portal — compact brand in topbar</strong>
+      <div class="metric">Official mark (33px, natural 256×178) + wordmark in the topbar; dashboard greets the citizen normally</div>
+    </figcaption>
+    <img src="/__verify/brand-citizen.png" alt="Citizen dashboard at 1440px with official MahaSetu brand in the topbar" />
+  </figure>
+
+  <h2>Desktop layout — horizontal bands (previous pass)</h2>
+
+  <figure>
+    <figcaption><span class="tag">PASS</span><strong>Citizen Dashboard — Nearby band</strong>
+      <div class="metric">Centres card x=280 w=440 · Map card x=744 w=672 · same top y=1426 → side-by-side (lg:grid-cols-5) · all 4 strip labels unclipped · no horizontal overflow</div>
+    </figcaption>
+    <img src="/__verify/1-citizen-dashboard.png" alt="Citizen dashboard at 1440px showing Nearby band with centres list left and Maharashtra map right" />
+  </figure>
+
+  <figure>
+    <figcaption><span class="tag">PASS</span><strong>Nearby Services page</strong>
+      <div class="metric">Map card spans full content width (1094 px at 1440 viewport) above the centre list · strip labels unclipped · no overflow</div>
+    </figcaption>
+    <img src="/__verify/2-nearby.png" alt="Nearby services page at 1440px with full-width Maharashtra map above centre list" />
+  </figure>
+
+  <figure>
+    <figcaption><span class="tag">PASS</span><strong>Landing page — Maharashtra map section</strong>
+      <div class="metric">Text column x=104 w=596 · map card x=740 w=596 → side-by-side two-column section (lg:grid-cols-2)</div>
+    </figcaption>
+    <img src="/__verify/3-landing-map.png" alt="Landing page map section at 1440px with copy left and white map card right" />
+  </figure>
+</body>
+</html>

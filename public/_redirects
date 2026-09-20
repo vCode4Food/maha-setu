@@ -1,0 +1,17 @@
+# Netlify SPA fallback — serve real files (assets, images) first, then route
+# everything else to index.html so deep links like /citizen/documents work.
+# /__verify/* is a static verification gallery that exists as real files, so it
+# is excluded and served as-is (a missing gallery file shows the host's 404).
+
+/citizen/*      /index.html   200
+/official/*     /index.html   200
+/business/*     /index.html   200
+/department-admin/* /index.html   200
+/admin/*        /index.html   200
+/services/*     /index.html   200
+/life-events/*  /index.html   200
+/apply/*        /index.html   200
+/search         /index.html   200
+
+# Global SPA fallback for everything else
+/*              /index.html   200
