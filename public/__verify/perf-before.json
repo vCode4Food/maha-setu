@@ -1,0 +1,20 @@
+{
+  "label": "before",
+  "activity": {
+    "longTasks": 0,
+    "blockingMs": 0,
+    "worst": 0
+  },
+  "idle": {
+    "longTasks": 0,
+    "blockingMs": 0
+  },
+  "navHopsMs": [
+    12,
+    26,
+    11,
+    19,
+    11
+  ],
+  "consoleErrors": []
+}

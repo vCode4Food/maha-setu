@@ -1,152 +1,56 @@
-import maharashtraMap from '../assets/mahasetu/maharashtra-map.jpeg';
-import atalSetu from '../assets/mahasetu/atal-setu.jpeg';
+/** Centralized image configuration — the ONLY place raw image URLs live. */
 
-/**
- * Curated Maharashtra-specific editorial photos.
- * Wikimedia Commons (Special:FilePath) for landmarks; Unsplash for people/activity
- * scenes. Each asset is unique and mapped to a section.
- */
-
-const wiki = (file: string, width = 1400) =>
-  `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=${width}`;
-
-const unsplash = (id: string, width = 1100) =>
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=85`;
+const U = (id: string, w = 1200, q = 70) =>
+  `https://images.unsplash.com/photo-${id}?w=${w}&q=${q}&auto=format&fit=crop`
 
 export const images = {
-  // Page-specific replacements. These are intentionally separate from shared
-  // image entries so no carousel, update card, or other surface is affected.
-  welcomeMap: {
-    primary: maharashtraMap,
-    fallback: '/images/hero-fallback.svg',
-    altKey: 'image.maharashtraMap',
-  },
-  atalSetu: {
-    primary: atalSetu,
-    fallback: '/images/impact-fallback.svg',
-    altKey: 'image.atalSetu',
-  },
-  hero: {
-    primary: unsplash('photo-1607748851687-ba9a10438621', 1400),
-    fallback: '/images/hero-fallback.svg',
-    altKey: 'image.hero',
-  },
-  impact: {
-    primary: wiki('Marine_Drive_Mumbai.jpg', 1100),
-    fallback: '/images/impact-fallback.svg',
-    altKey: 'image.impact',
-  },
-  education: {
-    primary: unsplash('photo-1580582932707-520aed937b7b', 1000),
-    fallback: '/images/education-fallback.svg',
-    altKey: 'image.education',
-  },
-  employability: {
-    primary: unsplash('photo-1595658658481-d53d3f999875', 1000),
-    fallback: '/images/employability-fallback.svg',
-    altKey: 'image.employability',
-  },
-  skillTraining: {
-    primary: unsplash('photo-1581092160562-40aa08e78837', 1000),
-    fallback: '/images/skill-fallback.svg',
-    altKey: 'image.skills',
-  },
-  citizens: {
-    primary: unsplash('photo-1529253355930-ddbe423a2ac7', 1000),
-    fallback: '/images/hero-fallback.svg',
-    altKey: 'image.citizens',
-  },
-  government: {
-    primary: wiki('Mumbai_03-2016_30_Gateway_of_India.jpg'),
-    fallback: '/images/impact-fallback.svg',
-    altKey: 'image.government',
-  },
-  infrastructure: {
-    primary: wiki('Bandra–Worli_Sea_Link.jpg'),
-    fallback: '/images/impact-fallback.svg',
-    altKey: 'image.infrastructure',
-  },
-  civic: {
-    primary: wiki('Chhatrapati_Shivaji_Maharaj_Terminus.jpg'),
-    fallback: '/images/impact-fallback.svg',
-    altKey: 'image.civic',
-  },
-  agriculture: {
-    primary: unsplash('photo-1464226184884-fa280b87c399', 1000),
-    fallback: '/images/impact-fallback.svg',
-    altKey: 'image.agriculture',
-  },
-  transport: {
-    primary: unsplash('photo-1514222709107-a180c68d72b4', 1000),
-    fallback: '/images/impact-fallback.svg',
-    altKey: 'image.transport',
-  },
-  students: {
-    primary: unsplash('photo-1427504494785-3a9ca7044f45', 1000),
-    fallback: '/images/education-fallback.svg',
-    altKey: 'image.students',
-  },
-  documents: {
-    primary: unsplash('photo-1454165804606-c3d57bc86b40', 1000),
-    fallback: '/images/hero-fallback.svg',
-    altKey: 'image.documents',
-  },
-  healthcare: {
-    primary: unsplash('photo-1576091160550-2173dba999ef', 1000),
-    fallback: '/images/hero-fallback.svg',
-    altKey: 'image.healthcare',
-  },
-  assessment: {
-    primary: unsplash('photo-1606326608606-aa0b62935f2b', 1000),
-    fallback: '/images/skill-fallback.svg',
-    altKey: 'image.assessment',
-  },
-} as const;
+  hero: U('1531497865144-0464ef8fb9a9', 1600, 75),
+  heroAlt: 'Indian citizens at a modern public service centre',
 
-export const carouselSlides = [
-  {
-    id: 'slide-education',
-    image: images.education.primary,
-    fallback: images.education.fallback,
-    altKey: images.education.altKey,
-    labelKey: 'department.education.name',
-    captionKey: 'carousel.education',
+  services: {
+    certificates: U('1517486808906-6ca8b3f04846'),
+    transport: U('1570125909232-eb263c188f7e'),
+    business: U('1556740738-b6a63e27c4df'),
+    health: U('1519494026892-80bbd2d6fd0d'),
+    education: U('1523050854058-8df90110c9f1'),
+    agriculture: U('1625246333195-78d9c38ad449'),
+    housing: U('1560518883-ce09059eeffa'),
   },
-  {
-    id: 'slide-skills',
-    image: images.skillTraining.primary,
-    fallback: images.skillTraining.fallback,
-    altKey: images.skillTraining.altKey,
-    labelKey: 'carousel.skills',
-    captionKey: 'carousel.skillsCaption',
+
+  lifeEvents: {
+    business: U('1556740738-b6a63e27c4df'),
+    baby: U('1519689680058-324335c77eba'),
+    marriage: U('1583939003579-730e3918a45e'),
+    job: U('1486312338219-ce68d2c6f44d'),
+    student: U('1523050854058-8df90110c9f1'),
+    farmer: U('1625246333195-78d9c38ad449'),
+    moving: U('1560518883-ce09059eeffa'),
+    senior: U('1581579438747-1dc8d17bbce4'),
+    healthcare: U('1519494026892-80bbd2d6fd0d'),
+    assistance: U('1579621970563-ebec7560ff3e'),
   },
-  {
-    id: 'slide-digital',
-    image: images.infrastructure.primary,
-    fallback: images.infrastructure.fallback,
-    altKey: images.infrastructure.altKey,
-    labelKey: 'carousel.digital',
-    captionKey: 'carousel.digitalCaption',
+
+  schemes: {
+    farmer: U('1500382017468-9049fed747ef'),
+    students: U('1523050854058-8df90110c9f1'),
+    startup: U('1522071820081-009f0129c71c'),
+    msme: U('1581091226825-a6a2a5aee158'),
+    health: U('1584982751601-97dcc096659c'),
+    women: U('1573164713988-8665fc963095'),
+    housing: U('1560518883-ce09059eeffa'),
+    merit: U('1427504494785-3a9ca7044f45'),
+    senior: U('1581579438747-1dc8d17bbce4'),
   },
-  {
-    id: 'slide-support',
-    image: images.citizens.primary,
-    fallback: images.citizens.fallback,
-    altKey: images.citizens.altKey,
-    labelKey: 'carousel.support',
-    captionKey: 'carousel.supportCaption',
+
+  india: {
+    city: U('1529253355930-ddbe4235bd62'),
+    rural: U('1477678437962-ce079e27bf5c'),
+    monsoon: U('1591129841117-3adfd313e34f'),
+    mumbai: U('1529253355930-ddbe4235bd62'),
   },
-];
 
+  trust: U('1550751827-473bdf8db63b'),
+  ai: U('1677442136019-21780ecad995'),
+}
 
-export const maharashtraCarouselSlides = [
-  { id: 'mh-mumbai', image: images.atalSetu.primary, fallback: images.atalSetu.fallback, altKey: images.atalSetu.altKey, labelKey: 'landing.culture.mumbai', captionKey: 'landing.culture.mumbai.body' },
-  { id: 'mh-konkan', image: images.impact.primary, fallback: images.impact.fallback, altKey: images.impact.altKey, labelKey: 'landing.culture.konkan', captionKey: 'landing.culture.konkan.body' },
-  { id: 'mh-heritage', image: images.civic.primary, fallback: images.civic.fallback, altKey: images.civic.altKey, labelKey: 'landing.culture.heritage', captionKey: 'landing.culture.heritage.body' },
-  { id: 'mh-sahyadri', image: images.infrastructure.primary, fallback: images.infrastructure.fallback, altKey: images.infrastructure.altKey, labelKey: 'landing.culture.sahyadri', captionKey: 'landing.culture.sahyadri.body' },
-] as const;
-
-
-export const CAROUSEL_INTERVAL_MS = 92_000;
-
-export type ImageKey = keyof typeof images;
+export type ImageKey = keyof typeof images

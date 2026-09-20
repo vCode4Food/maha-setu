@@ -1,0 +1,106 @@
+[
+  {
+    "page": "/citizen",
+    "dash": {
+      "kids": [
+        {
+          "x": 280,
+          "y": 1426,
+          "w": 440,
+          "h": 721
+        },
+        {
+          "x": 744,
+          "y": 1426,
+          "w": 672,
+          "h": 721
+        }
+      ]
+    },
+    "strip": {
+      "res": [
+        {
+          "t": "Citizens served",
+          "found": true,
+          "clipped": false,
+          "w": 68
+        },
+        {
+          "t": "Applications",
+          "found": true,
+          "clipped": false,
+          "w": 60
+        },
+        {
+          "t": "Live services",
+          "found": true,
+          "clipped": false,
+          "w": 63
+        },
+        {
+          "t": "Seva Kendras",
+          "found": true,
+          "clipped": false,
+          "w": 65
+        }
+      ],
+      "overflow": false
+    }
+  },
+  {
+    "page": "/citizen/nearby",
+    "nearby": {
+      "svgW": 1094,
+      "cardW": 1094,
+      "viewport": 1440
+    },
+    "strip": {
+      "res": [
+        {
+          "t": "Citizens served",
+          "found": true,
+          "clipped": false,
+          "w": 74
+        },
+        {
+          "t": "Applications",
+          "found": true,
+          "clipped": false,
+          "w": 60
+        },
+        {
+          "t": "Live services",
+          "found": true,
+          "clipped": false,
+          "w": 63
+        },
+        {
+          "t": "Seva Kendras",
+          "found": true,
+          "clipped": false,
+          "w": 65
+        }
+      ],
+      "overflow": false
+    }
+  },
+  {
+    "page": "/ (map section)",
+    "landing": {
+      "kids": [
+        {
+          "x": 104,
+          "y": 3992,
+          "w": 596,
+          "h": 332
+        },
+        {
+          "x": 740,
+          "y": 3844,
+          "w": 596,
+          "h": 627
+        }
+      ]
+    }
+  }
+]

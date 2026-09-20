@@ -1,49 +1,17 @@
-import type { Notification } from '../types';
+import type { Notif } from '@/types'
 
-export const defaultNotifications: Notification[] = [
-  {
-    id: 'notif-001',
-    title: 'Application update',
-    message: 'Your scholarship application has moved to verification.',
-    type: 'info',
-    read: false,
-    createdAt: '2026-09-05T14:20:00',
-    link: '/applications/app-001',
-  },
-  {
-    id: 'notif-002',
-    title: 'Registration submitted',
-    message: 'Your employment registration was successfully submitted.',
-    type: 'success',
-    read: false,
-    createdAt: '2026-09-01T09:15:00',
-    link: '/applications/app-002',
-  },
-  {
-    id: 'notif-003',
-    title: 'Document update needed',
-    message: 'Your income certificate may need to be updated before the next application cycle.',
-    type: 'warning',
-    read: true,
-    createdAt: '2026-08-28T08:00:00',
-    link: '/documents',
-  },
-  {
-    id: 'notif-004',
-    title: 'New service recommendation',
-    message: 'Based on your profile, Skill Development & Training may be relevant for you.',
-    type: 'info',
-    read: true,
-    createdAt: '2026-08-25T10:30:00',
-    link: '/services/skill-development-training',
-  },
-  {
-    id: 'notif-005',
-    title: 'Training approved',
-    message: 'Your Skill Development & Training application has been approved.',
-    type: 'success',
-    read: true,
-    createdAt: '2026-08-20T16:45:00',
-    link: '/applications/app-003',
-  },
-];
+export const initialNotifications: Notif[] = [
+  { id: 'n1', type: 'application', title: 'Officer review started', body: 'Your Business Registration (MS-2026-004821) is now with the Sub-Divisional Officer.', time: '25 min ago', read: false, audience: ['citizen'], link: '/citizen/applications/MS-2026-004821' },
+  { id: 'n2', type: 'document', title: 'Document needs your attention', body: 'Self-declaration of income was flagged as illegible in MS-2026-004798. Please re-upload.', time: '2 hours ago', read: false, audience: ['citizen'], link: '/citizen/applications/MS-2026-004798' },
+  { id: 'n3', type: 'scheme', title: 'New scheme matches your profile', body: 'Maha Nurture Merit Scholarship closes 30 Sep — check your eligibility.', time: 'Yesterday', read: false, audience: ['citizen'], link: '/citizen/schemes' },
+  { id: 'n4', type: 'grievance', title: 'Grievance assigned', body: 'GRV-2026-00231 assigned to Sub-Divisional Officer, Revenue. SLA: 72 hours.', time: 'Yesterday', read: true, audience: ['citizen'], link: '/citizen/grievances' },
+  { id: 'n5', type: 'payment', title: 'Receipt archived', body: '₹600 paid for Driving Licence Renewal. Receipt added to your vault.', time: '3 Sep', read: true, audience: ['citizen'], link: '/citizen/documents' },
+  { id: 'n6', type: 'application', title: 'Certificate delivered to vault', body: 'Driving Licence renewed successfully — MS-2026-004654 completed.', time: '3 Sep', read: true, audience: ['citizen'], link: '/citizen/applications/MS-2026-004654' },
+  { id: 'n7', type: 'security', title: 'Consent granted', body: 'You allowed Education Department to verify enrolment status (single use).', time: '2 Sep', read: true, audience: ['citizen'], link: '/citizen/consent' },
+]
+
+export const officialSeedNotifications: Notif[] = [
+  { id: 'o1', type: 'application', title: 'High priority case assigned', body: 'MS-2026-004821 (Business Registration) assigned to you for officer review.', time: '25 min ago', read: false, audience: ['official'], link: '/official/applications/MS-2026-004821' },
+  { id: 'o2', type: 'grievance', title: 'Grievance within SLA', body: 'GRV-2026-00231 is at 60% of its 72-hour SLA.', time: '1 hour ago', read: false, audience: ['official'], link: '/official/grievances' },
+  { id: 'o3', type: 'department', title: 'Department notice', body: 'Revenue Dept: New stamp duty circular effective 20 Sep — see reports.', time: 'Yesterday', read: true, audience: ['official'] },
+]
